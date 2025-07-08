@@ -1,6 +1,3 @@
-### `README.md`
-
-````markdown
 # YTS Movie Torrent CLI
 
 A command-line interface (CLI) tool to search and download movie torrents from YTS.mx using a guided, interactive terminal experience. It allows you to:
