@@ -5,3 +5,4 @@ InquirerPy
 wheel
 setuptools
 twine
+torrentp
