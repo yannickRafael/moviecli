@@ -31,4 +31,5 @@ Tomatometer: {tomatometer}
 Audience: {audience}
 IMDb: {imdb}
 '''
+    del choices[-1]
     return details, choices, dict
