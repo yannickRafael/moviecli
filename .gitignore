@@ -9,3 +9,6 @@ __pycache__
 dist
 *.log
 test.py
+output.html
+response.html
+url.txt
