@@ -36,6 +36,33 @@ def search_movie(movie, quality, genre, year, rating, language, order_by):
     
     return results
 
+def get_movie_details(url):
+    response = requests.get(url)
 
+    soup = BeautifulSoup(response.text, 'html.parser')
+    with open('response.html', 'w') as f:
+        print(soup.prettify(), file=f)
+    
+    movie_details = soup.find('div', id='movie-info')
+    infos = movie_details.find_all('div', recursive=False)
+    title = (infos[0].find('h1')).text
+    year = infos[0].find_all('h2')[0].text
+    categories = (infos[0].find_all('h2')[1].text).split('/')
 
+    bottom_info = infos[1].find_all('div', class_='rating-row')
+
+    tomatometer = bottom_info[1].find('span').text
+    audience = bottom_info[2].find('span').text
+    imdb = bottom_info[3].find('span').text
+    
+    available_in = movie_details.find('p').find_all('a', recursive=False)
+
+    downloads = {}
+
+    for a in available_in:
+        download_link = a['href']
+        quality = a.text
+        downloads[quality] = download_link
+    
+    return title, year, categories, tomatometer, audience, imdb, downloads
 
