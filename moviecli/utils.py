@@ -24,12 +24,11 @@ def format_movie_details(movie_details):
         choices.append(key)
 
     details = f'''
-Title: {title};
-Year: {year};
-Categories: {categories};
-Tomatometer: {tomatometer};
-Audience: {audience};
-IMDb: {imdb};
-options: {movie_details[6]}
+Title: {title}
+Year: {year}
+Categories: {categories}
+Tomatometer: {tomatometer}
+Audience: {audience}
+IMDb: {imdb}
 '''
     return details, choices, dict
