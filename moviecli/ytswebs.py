@@ -66,3 +66,11 @@ def get_movie_details(url):
     
     return title, year, categories, tomatometer, audience, imdb, downloads
 
+def download_torrent(url, filename=None):
+    if not filename: filename = url.split('/')[-1]
+    response = requests.get(url)
+    if response.status_code != 200:
+        return None
+    with open(filename, 'wb') as file:
+        file.write(response.content)
+    return filename
