@@ -3,7 +3,15 @@ from bs4 import BeautifulSoup
 from config import Config as c
 
 
-def search_movie(movie, quality, genre, year, rating, language, order_by):
+def search_movie(
+        movie, 
+        quality = c.QUALITY['all'], 
+        genre = c.GENRES['all'], 
+        year = '0', 
+        rating = 0, 
+        language = 'en', 
+        order_by = 'latest'
+        ):
     url = c.SEARCH_URL
     payload = {
         "keyword": movie,
