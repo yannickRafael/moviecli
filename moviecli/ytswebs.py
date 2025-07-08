@@ -74,11 +74,28 @@ def get_movie_details(url):
     
     return title, year, categories, tomatometer, audience, imdb, downloads
 
+import requests
+import os
+
 def download_torrent(url, filename=None):
-    if not filename: filename = url.split('/')[-1]
-    response = requests.get(url)
-    if response.status_code != 200:
+    try:
+        response = requests.get(url, allow_redirects=True, timeout=10)
+
+        if response.status_code != 200:
+            print(f"Erro ao baixar: código {response.status_code}")
+            return None
+
+        if not filename:
+            filename = url.split('/')[-1]
+            if not filename.endswith('.torrent'):
+                filename += '.torrent'
+
+        with open(filename, 'wb') as file:
+            file.write(response.content)
+
+        print(f"Arquivo salvo como: {filename}")
+        return filename
+
+    except requests.exceptions.RequestException as e:
+        print(f"Erro na requisição: {e}")
         return None
-    with open(filename, 'wb') as file:
-        file.write(response.content)
-    return filename
