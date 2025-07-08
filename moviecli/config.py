@@ -1,4 +1,6 @@
 class Config():
+    SEARCH_URL = 'https://yts.mx/search-movies'
+
     QUALITY = {
         "all":"all",
         "480p":"480p",
