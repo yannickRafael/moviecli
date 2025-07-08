@@ -67,5 +67,4 @@ class TorrentDownloader:
             self._downloading = False
             return
 
-        # Agenda próxima verificação
         self._start_progress_monitor()
