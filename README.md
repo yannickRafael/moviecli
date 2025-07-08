@@ -25,7 +25,7 @@ pip install .
 ## Usage
 
 ```bash
-python -m ytswebs "The Matrix"
+python -m moviecli "The Matrix"
 ```
 
 You will be prompted to:
