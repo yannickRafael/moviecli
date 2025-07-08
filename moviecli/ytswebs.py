@@ -59,9 +59,9 @@ def get_movie_details(url):
 
     bottom_info = infos[1].find_all('div', class_='rating-row')
 
-    tomatometer = bottom_info[1].find('span').text
-    audience = bottom_info[2].find('span').text
-    imdb = bottom_info[3].find('span').text
+    tomatometer = bottom_info[1].find('span').text if len(bottom_info) > 1 else None
+    audience = bottom_info[2].find('span').text if len(bottom_info) > 2 else None
+    imdb = bottom_info[3].find('span').text if len(bottom_info) > 3 else None
     
     available_in = movie_details.find('p').find_all('a', recursive=False)
 
