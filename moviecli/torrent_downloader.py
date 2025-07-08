@@ -50,6 +50,13 @@ class TorrentDownloader:
             self._progress_timer.cancel()
             self._progress_timer = None
 
+    def get_progress(self):
+        try:
+            return round(self.torrent._downloader._get_status_progress, 2)
+        except:
+            return self.progress
+
+
     def _monitor_progress(self):
         if not self._downloading:
             return
