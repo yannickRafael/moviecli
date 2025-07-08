@@ -17,7 +17,8 @@ def search(movie):
         instruction='Use arrow keys to navigate and Enter to select.',
     ).execute()
 
-    click.secho(f'You selected {selection}', color="green")
+    click.secho(f'You selected {selection}', fg="green")
+
 
 
 
