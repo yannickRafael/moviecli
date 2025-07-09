@@ -4,7 +4,6 @@ setup(
     name='moviecli',
     version='0.1.1',
     packages=find_packages(),
-    py_modules=['cli', 'torrent_downloader', 'utils', 'ytswebs', 'config'],
     install_requires=[
         'click',
         'InquirerPy',
@@ -14,7 +13,7 @@ setup(
     ],
     entry_points={
         'console_scripts': [
-            'moviecli=cli:search',
+            'moviecli=moviecli.cli:search',
         ],
     },
     author='yannickRafael',

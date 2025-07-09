@@ -1,8 +1,8 @@
 import click
-from ytswebs import *
-from utils import *
+from moviecli.ytswebs import *
+from moviecli.utils import *
 from InquirerPy import inquirer
-from torrent_downloader import TorrentDownloader
+from moviecli.torrent_downloader import TorrentDownloader
 import threading
 import time
 

@@ -1,1 +1,1 @@
-from cli import search
+from .cli import search
